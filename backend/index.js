@@ -5,6 +5,7 @@ const debugPrint = require("./utils/debugPrint");
 
 app.use("/rooms", roomRoutes);
 
-server.listen(process.env.PORT | 4000, () => {
-  debugPrint("SERVER RUNNING");
+const PORT = process.env.PORT | 3011;
+server.listen(PORT, () => {
+  debugPrint("SERVER RUNNING on "+PORT);
 });

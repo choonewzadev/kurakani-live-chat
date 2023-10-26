@@ -24,26 +24,27 @@ function ChatBody({ roomId }: { roomId: string }) {
       {messages[roomId]?.map((message: any, index: number) =>
         message.socketId === "kurakani" ? (
           <div className="flex self-center" key={index}>
-            <div className="flex justify-center items-center">
+            <div className="flex items-center justify-center">
               <p>{message.text}</p>
             </div>
           </div>
         ) : message.socketId === socket?.id ? (
-          <div className="flex self-end flex-col items-end" key={index}>
-            {message.text && <div className="flex justify-center items-center px-3 py-1 text-white rounded-full rounded-br-none bg-primary">
+          <div className="flex flex-col items-end self-end" key={index}>
+            {message.text && <div className="flex items-center justify-center px-3 py-1 text-white rounded-full rounded-br-none bg-primary">
               <p className="font-sans">{message.text}</p>
             </div>}
             {message.image && <ChatImage imgURL={message.image} />}
           </div>
         ) : (
-          <div className="flex gap-2 self-start" key={index}>
+          <div className="flex self-start gap-2" key={index}>
             <div className="self-center">
-              <Avatar
+              {/* <Avatar
                 name={message.name}
                 round={true}
                 size="30"
                 className="text-sm"
-              />
+              /> */}
+              {message.name}
             </div>
             <div>
               <p className="pl-2 text-sm align-bottom">{message.name}</p>
